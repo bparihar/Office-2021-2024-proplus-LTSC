@@ -1,0 +1,41 @@
+@echo off
+title Office Installer Menu
+
+:: Check admin
+net session >nul 2>&1
+if %errorLevel% neq 0 (
+    echo Requesting Administrator privileges...
+    powershell -Command "Start-Process '%~f0' -Verb RunAs"
+    exit
+)
+
+:menu
+cls
+echo ===============================
+echo     OFFICE INSTALLER MENU
+echo ===============================
+echo.
+echo 1. Install Office 2021 ProPlus
+echo 2. Install Office 2024 LTSC ProPlus
+echo 3. Exit
+echo.
+set /p choice=Enter your choice (1-3): 
+
+if "%choice%"=="1" goto install2021
+if "%choice%"=="2" goto install2024
+if "%choice%"=="3" exit
+goto menu
+
+:install2021
+echo Installing Office 2021 ProPlus...
+cd /d "%~dp0"
+setup.exe /configure config2021.xml
+pause
+exit
+
+:install2024
+echo Installing Office 2024 LTSC ProPlus...
+cd /d "%~dp0"
+setup.exe /configure config2024.xml
+pause
+exit

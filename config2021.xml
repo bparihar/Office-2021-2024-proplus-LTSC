@@ -1,0 +1,11 @@
+<Configuration>
+  <Add OfficeClientEdition="64" Channel="PerpetualRetail">
+    <Product ID="ProPlus2021Retail">
+      <Language ID="en-us" />
+    </Product>
+  </Add>
+
+  <Display Level="Full" AcceptEULA="TRUE" />
+  <Property Name="AUTOACTIVATE" Value="1" />
+  <Updates Enabled="TRUE" />
+</Configuration>
